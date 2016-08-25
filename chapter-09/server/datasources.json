@@ -1,0 +1,12 @@
+{
+  "galleryDS": {
+    "host": "ds013564.mlab.com",
+    "port": 13564,
+    "url": "",
+    "database": "n6b-chapter-09",
+    "password": "chapter-09-example",
+    "name": "n6b-chapter-09",
+    "user": "chapter-09-example",
+    "connector": "mongodb"
+  }
+}

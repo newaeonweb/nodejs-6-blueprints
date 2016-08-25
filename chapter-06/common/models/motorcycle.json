@@ -1,0 +1,44 @@
+{
+    "name": "motorcycle",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+		"image": {
+			"type": "string",
+			"required": true
+		},
+        "make": {
+            "type": "string",
+            "required": true
+        },
+		"description": {
+			"type": "string",
+			"required": true
+		},
+        "model": {
+            "type": "string",
+            "required": true
+        },
+        "category": {
+            "type": "string",
+            "required": true
+        },
+        "year": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "validations": [],
+    "relations": {
+        "review": {
+            "type": "hasMany",
+            "model": "review",
+            "foreignKey": "ObjectId"
+        }
+    },
+    "acls": [],
+    "methods": {}
+}

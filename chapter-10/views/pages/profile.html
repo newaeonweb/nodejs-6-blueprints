@@ -1,0 +1,68 @@
+{% extends '../layouts/main.html' %}
+
+{% block content %}
+    <div class="container">
+      <div class="panel">
+        <div class="panel-body">
+          {% if messages.success %}
+            <div role="alert" class="alert alert-success">
+              {% for item in messages.success %}
+                <div>{{ item.msg }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if messages.error %}
+            <div role="alert" class="alert alert-danger">
+              {% for item in messages.error %}
+                <div>{{ item.msg }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <form method="POST" action="/account?_method=PUT">
+            <legend>Account Details</legend>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" value="{{user.email}}">
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{user.name}}">
+            </div>
+              <br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-body">
+          <form method="POST" action="/account?_method=PUT">
+            <legend>Change Password</legend>
+            <div class="form-group">
+              <label for="password">New Password</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="confirm">Confirm Password</label>
+                <input type="password" name="confirm" id="confirm" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Change Password</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-body">
+          <form method="POST" action="/account?_method=DELETE">
+            <legend>Delete My Account</legend>
+            <div class="form-group">
+              <p class="text-muted">It is irreversible action.</p>
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

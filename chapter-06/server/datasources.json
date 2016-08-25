@@ -1,0 +1,11 @@
+{
+  "motorcycleDataSource": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "motorcycle-feedback",
+    "password": "",
+    "name": "motorcycleDataSource",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

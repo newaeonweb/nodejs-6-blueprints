@@ -1,0 +1,43 @@
+{
+  "name": "chapter-10",
+  "version": "1.0.0",
+  "main": "server.js",
+  "description": "Create an app for the cloud with Docker",
+  "scripts": {
+    "build": "npm-run-all build-*",
+    "build-css": "node-sass public/css/main.scss > public/css/main.css",
+    "postinstall": "npm run build",
+    "start": "node server.js",
+    "test": "mocha",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:css": "nodemon -e scss -w public/css -x npm run build:css"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.2.1",
+    "express-validator": "^2.20.4",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.8",
+    "morgan": "^1.7.0",
+    "node-sass": "^3.6.0",
+    "nodemon": "^1.9.1",
+    "npm-run-all": "^1.8.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": "6.1.0"
+  }
+}

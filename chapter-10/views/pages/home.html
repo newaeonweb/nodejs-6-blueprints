@@ -1,0 +1,33 @@
+{% extends '../layouts/main.html' %}
+
+{% block content %}
+    <div class="container">
+      {% if messages.success %}
+        <div role="alert" class="alert alert-success">
+          {% for item in messages.success %}
+            <div>{{ item.msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if messages.error %}
+        <div role="alert" class="alert alert-danger">
+          {% for item in messages.error %}
+            <div>{{ item.msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if messages.info %}
+        <div role="alert" class="alert alert-info">
+          {% for item in messages.info %}
+            <div>{{ item.msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="app">
+        <div class="jumbotron">
+          <h1 class="text-center">Node 6 Bluenprints Book</h1>
+            <p>This example illustrate how to build, test and deploy a Node.js application using: Github, Heroku, MOngolab, Codeship and Docker.</p>
+          </div>
+      </div>
+    </div>
+{% endblock %}

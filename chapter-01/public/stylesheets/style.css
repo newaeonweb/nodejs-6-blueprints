@@ -1,0 +1,67 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+/* Sticky footer styles */
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px; }
+
+body > .container {
+  padding-top: 60px; }
+
+nav {
+  background-color: #C5D4E2; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px;
+  background-color: #C5D4E2; }
+
+/* Sign in Page */
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto; }
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px; }
+
+.form-signin .checkbox {
+  font-weight: normal; }
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+    -webkit-box-sizing-box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px; }
+
+.form-signin .form-control:focus {
+  z-index: 2; }
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,32 @@
+{
+  "name": "bike",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "gallery": {
+      "type": "belongsTo",
+      "model": "gallery",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

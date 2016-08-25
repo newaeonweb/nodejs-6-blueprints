@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <% include ../partials/stylesheet %>
+</head>
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="text-muted">Images</h4>
+            </div>
+            <div class="col-lg-6">
+                <button type="button" class="btn btn-secondary pull-right" data-toggle="modal" data-target="#createImage">
+                    Image Upload
+                </button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="createImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="/images" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Upload a image file</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <fieldset class="form-group">
+                                <label  for="itle">Title</label>
+                                <input type="text" id="itle" name="title" class="form-control" placeholder="Image Title" required="">
+                            </fieldset>
+                            <label class="file" style="width: 100%">
+                                <input type="file" id="image" name="image">
+                                <span class="file-custom"></span>
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <% images.forEach(function(images){ %>
+                <div class="col-lg-4">
+                    <figure class="figure">
+                        <img src="images/<%= images.imageName %>" class="figure-img img-fluid img-rounded" alt="<%= images.imageName %>">
+                        <figcaption class="figure-caption"><%= images.title %></figcaption>
+                        <small>Upload by: <%= images.user.local.email %></small>
+                    </figure>
+                </div>
+            <% }); %>
+        </div>
+        </div>
+        <% include ../partials/footer %>
+        <% include ../partials/javascript %>
+    </body>
+    </html>

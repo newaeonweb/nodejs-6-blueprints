@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <% include ../partials/stylesheet %>
+</head>
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="text-muted">Comments</h4>
+            </div>
+            <div class="col-lg-6">
+                <button type="button" class="btn btn-secondary pull-right" data-toggle="modal" data-target="#createPost">
+                    Create Comment
+                </button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="createPost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="/comments" method="post">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Create Comment</h4>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <fieldset class="form-group">
+                                <label  for="inputitle">Title</label>
+                                <input type="text" id="inputitle" name="title" class="form-control" placeholder="Comment Title" required="">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label  for="inputContent">Content</label>
+                                <textarea id="inputContent" name="content" rows="8" cols="40" class="form-control" placeholder="Comment Description" required=""></textarea>
+                            </fieldset>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="lead">
+            <div class="list-group">
+            <% comments.forEach(function(comments){ %>
+                    <a href="#" class="list-group-item">
+                        <img src="<%= gravatar %>" alt="" style="float: left; margin-right: 10px">
+                        <div class="comments">
+                            <h4 class="list-group-item-heading"><%= comments.title %></h4>
+                            <p class="list-group-item-text"><%= comments.content %></p>
+                            <small class="text-muted">By: <%= comments.user.local.email %></small>
+                        </div>
+                    </a>
+
+            <% }); %>
+            </div>
+        </div>
+        </div>
+        <% include ../partials/footer %>
+        <% include ../partials/javascript %>
+    </body>
+    </html>

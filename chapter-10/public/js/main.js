@@ -1,0 +1,3 @@
+$(function() {
+  // Custom JavaScript code
+});

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+{% include "../partials/head.html" %}
+<body>
+<nav class="teal" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/locations">Locations</a></li>
+            <li><a href="/locations/add">Add Location</a></li>
+            <li><a href="/stores">Stores</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+            <li><a href="/locations">Locations</a></li>
+            <li><a href="/locations/add">Add Location</a></li>
+            <li><a href="/">Stores</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+{% block content %}{% endblock %}
+<!-- Footer -->
+{% include "../partials/footer.html" %}
+</body>
+</html>

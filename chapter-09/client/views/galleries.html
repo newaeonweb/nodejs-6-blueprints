@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-4" ng-repeat="item in vm.listProducts">
+    <div class="card" >
+      <a href="{{ item.image }}" class="fancybox" rel="gallery" title="{{ item.name }}">
+          <img class="card-img-top" ng-src="{{ item.image }}" alt="{{ item.name }}" width="100%"/>
+      </a>
+      <div class="card-block">
+        <h4 class="card-title">{{ item.name }}</h4>
+        <p class="card-text">{{ item.model }} - {{ item.category }}</p>
+      </div>
+    </div>
+  </div>
+</div>

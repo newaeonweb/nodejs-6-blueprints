@@ -1,0 +1,30 @@
+{% extends '../layouts/main.html' %}
+
+{% block content %}
+    <div class="login-container container">
+      <div class="panel">
+        <div class="panel-body">
+          {% if messages.error %}
+            <div role="alert" class="alert alert-danger">
+              {% for item in messages.error %}
+                <div>{{ item.msg }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <form method="POST">
+            <legend>Welcome to login</legend>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email" class="form-control" autofocus>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+          </form>
+        </div>
+      </div>
+      <p class="text-center">Don't have an account? <a href="/signup"><strong>Sign up</strong></a>, it's free.</p>
+    </div>
+{% endblock %}

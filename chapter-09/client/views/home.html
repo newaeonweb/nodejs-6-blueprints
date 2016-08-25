@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6" ng-repeat="item in vm.listProducts">
+    <div class="card" >
+      <img class="card-img-top" ng-src="{{ item.image }}" alt="Card image cap" width="100%">
+      <div class="card-block">
+        <h4 class="card-title">{{ item.name }}</h4>
+        <p class="card-text">{{ item.description }}</p>
+        <a ui-sref="galleries({itemId:item.id})" class="btn btn-secondary">View Gallery</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "angular": 1,
+        "module": 1,
+        "exports": 1
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-mixed-spaces-and-tabs": 0,
+        "quotes": 0,
+        "semi": 0,
+        "comma-dangle": 1,
+        "no-console": 0
+    }
+}

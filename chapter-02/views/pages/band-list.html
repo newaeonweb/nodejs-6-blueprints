@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<div class="album text-muted">
+    <div class="container">
+        <div class="row">
+            {% for band in bands %}
+                <div class="card col-lg-4">
+                    <h2 class="text-lg-center">{{ band.name }}</h2>
+                    {% if band.album == null %}
+                    <img src="https://placehold.it/320x320" alt="{{ band.name }}" style="height: 320px; width: 100%; display: block;">
+                    {% endif %}
+                    {% if band.album %}
+                    <img src="{{ band.album }}" width="100%" height="320px">
+                    {% endif %}
+                    <p class="card-text">{{ band.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

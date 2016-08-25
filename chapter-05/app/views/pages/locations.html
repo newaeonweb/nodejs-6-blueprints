@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="section">
+    <div class="container">
+        <br><br>
+        <h1 class="header center teal-text">{{ title }}</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">Welcome to {{ title }}</h5>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <div id="store-list" class="collection">
+                    {% for item in location %}
+                    <a href="#" class="pan-to-marker collection-item" data-marker-index="{{loop.index }}">{{item.title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col s9">
+                <form action="/nearme" method="POST">
+                    <div class="row">
+                        <!-- Map -->
+                        <div class="col s12" id="map" style="height: 600px; width: 100%; margin-bottom: 20px"></div>
+                        <br>
+                        <h5 class="grey-text center">
+                            Find a store near by you
+                        </h5>
+                        <br>
+                        <div class="input-field col s5">
+                            <input placeholder="Insert Longitude" name="longitude" id="longitude" type="text" class="validate" value="{{long}}">
+                            <label for="longitude">Longitude</label>
+                        </div>
+                        <div class="input-field col s5">
+                            <input placeholder="Insert latitude" name="latitude" id="latitude" type="text" class="validate" value="{{lat}}">
+                            <label for="latitude">Latitude</label>
+                        </div>
+                        <div class="input-field col s2">
+                              <select class="browser-default" name="distance" id="distance">
+                                <option value="" disabled selected>Distance</option>
+                                <option value="2">2 Km</option>
+                                <option value="3">3 km</option>
+                                <option value="9">9 km</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var loadMap = function() {
+        // Center map with current lat and long (Simulated with fixed point for this example)
+        var googlePos = new google.maps.LatLng({{ lat }} , {{ long }});
+        // Setup map options
+        var mapOptions = {
+            zoom : 12,
+            center : googlePos,
+            mapTypeId : google.maps.MapTypeId.ROADMAP
+        };
+
+        // Set a variable to get the HTML div
+        var mapObj = document.getElementById('map');
+        var googleMap = new google.maps.Map(mapObj, mapOptions);
+        // Create markers array to hold all markers on map
+        var markers = [];
+
+        // Using the Swig loop to get all data from location variable
+
+        {% for item in location %}
+            // Setup a lat long object
+            var latLng = new google.maps.LatLng({{ item.coordinates[1] }}, {{ item.coordinates[0] }});
+            // Create a marker
+            var marker = new google.maps.Marker({
+                map : googleMap,
+                position: latLng,
+                animation : google.maps.Animation.DROP
+            });
+
+            markers.push(marker);
+
+            // Setup the info window
+            var infowindow = new google.maps.InfoWindow();
+
+            // Add an event listener to click on each marker and show an info window
+            google.maps.event.addListener(marker, 'click', function () {
+                // using the tittle from the Swig looping
+                infowindow.setContent('<p>' + " {{ item.title }} " + '</p>');
+                infowindow.open(googleMap, this);
+            });
+
+        {% endfor %}
+
+        // get all the pan-to-marker class
+        var els = document.querySelectorAll(".pan-to-marker");
+        // looping over all list elements
+        for (var i = 0, len = els.length; i < len; i++) {
+
+            els[i].addEventListener("click", function(e){
+                e.preventDefault();
+
+                // Use -1 for index because loop.index from swig starts on 1
+                var attr = this.getAttribute('data-marker-index') -1;
+                // get longitude and latitude of the marker
+                var latitude = markers[attr].getPosition().lat();
+                var longitude = markers[attr].getPosition().lng();
+
+                console.log(latitude, longitude );
+                // Center map and apply zoom
+                googleMap.setCenter({lat: latitude, lng: longitude});
+                googleMap.setZoom(18);
+
+            });
+        }
+
+    };
+    // load the map function
+    window.onload = loadMap;
+</script>
+
+{% endblock %}

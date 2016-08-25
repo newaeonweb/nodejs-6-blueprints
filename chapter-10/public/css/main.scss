@@ -1,0 +1,70 @@
+// import bootstrap
+@import "vendor/bootstrap";
+
+// Structure
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 44px;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: 44px;
+  padding: 10px 30px;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.login-container {
+  max-width: 555px;
+}
+
+// Warning
+.alert {
+  border-width: 0 0 0 3px;
+}
+
+// Panels
+.panel {
+  border: solid 1px rgba(160, 160, 160, 0.3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading + .panel-body {
+  padding-top: 0;
+}
+
+.panel-body {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+  }
+}
+
+.panel-title {
+  font-size: 18px;
+  color: #424242;
+}
+
+// Form
+textarea {
+  resize: none;
+}
+
+.form-control {
+  height: auto;
+  padding: 8px 12px;
+  border: 2px solid #ebebeb;
+  border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(150, 160, 175, 0.1), inset 0 1px 15px rgba(150, 160, 175, 0.05);
+}
+
+.form-group > label {
+  text-transform: uppercase;
+  font-size: 13px;
+}
