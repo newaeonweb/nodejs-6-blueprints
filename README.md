@@ -2,7 +2,7 @@ Node.JS 6 Blueprints Book
 ---
 Official book repository. More information can be found here: [Packt Pub](https://www.packtpub.com/web-development/nodejs-6x-blueprints)
 
-![Node.JS 6 Blueprints Book](http://www.newaeonweb.com.br/assets/images/Node%206%20Blueprints.jpg)
+![Node.JS 6 Blueprints Book](http://www.newaeonweb.com.br/assets/images/Node.JS%206.x%20Blueprints.jpg)
 
 
 ### What this book covers
