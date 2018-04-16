@@ -72,7 +72,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 2.5.2)
-  rouge (~> 1.7.4)
+  jekyll (~> 3.7.3)
+  rouge (~> 3.1.1)
   sass (~> 3.4.9)
-  scss-lint (~> 0.31)
+  scss-lint (~> 0.57)
